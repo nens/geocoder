@@ -1,7 +1,9 @@
-GEOCODOCKER
-===========
+GEOCODER
+========
 
 A super simple geocoder and reverse geocoder for the Netherlands.
+
+Based on BAG extract CSV.
 
 
 Running
@@ -10,9 +12,6 @@ Running
 ```bash
 $ node server.js
 ```
-
-
-
 
 
 Spatialite preparation
