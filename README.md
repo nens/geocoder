@@ -168,6 +168,11 @@ Copy the resulting file `bagadres.spatialite` to the folder `db/`.
 
 
 
+TODO
+----
+
+- Create a Dockerfile
+
 
 Query scratchpad
 ----------------
