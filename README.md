@@ -6,8 +6,45 @@ A super simple geocoder and reverse geocoder for the Netherlands.
 Based on BAG extract CSV.
 
 
+
+Installation
+------------
+
+On Ubuntu/Debian:
+```bash
+$ sudo apt-get install curl autoconf automake libtool pkg-config build-essential
+```
+
+On MacOS
+```bash
+$ brew install curl autoconf automake libtool pkg-config
+```
+
+```bash
+git clone https://github.com/openvenues/libpostal
+cd libpostal
+./bootstrap.sh
+./configure --datadir=[...some dir with a few GB of space...]
+make
+sudo make install
+
+# On Linux it's probably a good idea to run
+sudo ldconfig
+```
+
+```bash
+$ sudo npm install -g node-gyp
+$ yarn install
+```
+
+
+
+
 Running
 -------
+
+Node.js installation required!
+
 
 ```bash
 $ node server.js
@@ -39,6 +76,11 @@ Don't forget to set the separator to ';':
 $ sqlite3 bagadres.spatialite
 sqlite> .separator ";"
 sqlite> .import ./bagadres.csv bagadres
+```
+
+Convert all strings to lowercase:
+```bash
+sqlite> UPDATE bagadres SET openbareruimte = LOWER(openbareruimte), gemeente = LOWER(gemeente) huisnummertoevoeging = LOWER(huisnummertoevoeging) woonplaats = LOWER(woonplaats) provincie = LOWER(provincie);
 ```
 
 

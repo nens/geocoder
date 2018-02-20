@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "",
+    "node-postal": "openvenues/node-postal",
     "spatialite": "^0.1.0",
     "sqlite3": "^3.1.13"
   }
