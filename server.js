@@ -114,8 +114,6 @@ app.get("/geocode", function(req, res) {
                 huisnummer=? AND
                 woonplaats=?`;
 
-        console.log(road.value, house_number.value, city.value);
-
         db.spatialite(function(err) {
             db.get(
                 query,

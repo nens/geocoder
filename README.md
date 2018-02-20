@@ -15,11 +15,12 @@ On Ubuntu/Debian:
 $ sudo apt-get install curl autoconf automake libtool pkg-config build-essential
 ```
 
-On MacOS
+On MacOS:
 ```bash
 $ brew install curl autoconf automake libtool pkg-config
 ```
 
+Install libpostal (C lib):
 ```bash
 git clone https://github.com/openvenues/libpostal
 cd libpostal
@@ -32,6 +33,7 @@ sudo make install
 sudo ldconfig
 ```
 
+Then, install the JS dependencies:
 ```bash
 $ sudo npm install -g node-gyp
 $ yarn install
@@ -50,20 +52,31 @@ Node.js installation required!
 $ node server.js
 ```
 
-Querying
---------
 
+Example queries
+---------------
+
+Normal geocoding, accepts address + city:
+```bash
+$ curl http://localhost:3000/geocode?q=peppeldonk%2015,%20helmond
+
+{"straatnaam":"peppeldonk","huisnummer":"15","huisnummertoevoeging":"","postcode":"5708AP","woonplaats":"helmond","gemeente":"Helmond","provincie":"Noord-Brabant","lon":"5.62753660400647","lat":"51.4833656206657","object_type":"VBO","object_id":"0794010000123493","geometry":{"type":"Point","coordinates":[5.62753660400647,51.4833656206657]}}
+```
+
+Postcode geocoding, accepts postcode + huisnummer:
+```bash
+$ curl http://localhost:3000/postcode?postcode=5216GV&huisnummer=31
+
+{"straatnaam":"Philippus de Montestraat","huisnummer":"31","huisnummertoevoeging":"","postcode":"5216GV","woonplaats":"'s-Hertogenbosch","gemeente":"'s-Hertogenbosch","provincie":"Noord-Brabant","lon":"5.31464820939035","lat":"51.682194039915","object_type":"VBO","object_id":"0796010000386976","geometry":{"type":"Point","coordinates":[5.31464820939035,51.68219403991499]}}
+```
+
+Reverse geocoding, accepts a lat/lon (EPSG:4326):
 ```bash
 $ curl http://localhost:3000/reverse?lat=5.592062&lon=51.4
 
 {"straatnaam":"de Plaetse","huisnummer":"70","huisnummertoevoeging":"","postcode":"5591TX","woonplaats":"Heeze","gemeente":"Heeze-Leende","provincie":"Noord-Brabant","lon":"5.59048640064042","lat":"51.3982902573836","object_type":"VBO","object_id":"1658010000000594"}
 ```
 
-```bash
-$ curl http://localhost:3000/geocode?postcode=5216GV&huisnummer=31
-
-{"straatnaam":"Philippus de Montestraat","huisnummer":"31","huisnummertoevoeging":"","postcode":"5216GV","woonplaats":"'s-Hertogenbosch","gemeente":"'s-Hertogenbosch","provincie":"Noord-Brabant","lon":"5.31464820939035","lat":"51.682194039915","object_type":"VBO","object_id":"0796010000386976","geometry":{"type":"Point","coordinates":[5.31464820939035,51.68219403991499]}}
-```
 
 
 Spatialite preparation
