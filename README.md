@@ -104,8 +104,9 @@ Query scratchpad
 ----------------
 
 
-FAST (~2 ms with 8973049 records, uses spatial index)
+### FAST (~2 ms with 8973049 records, uses spatial index)
 
+```sql
 SELECT openbareruimte, ST_Distance(geometry,
   MakePoint(5.592062, 51.471299)) AS distance
 FROM bagadres
@@ -116,12 +117,13 @@ WHERE distance < 0.005
     AND search_frame = 
       BuildCircleMbr(5.592062, 51.471299, 0.005))
 ORDER BY distance;
+```
 
 
 
+### SLOW (>5 seconds with 8973049 records, not using spatial index)
 
-SLOW (>5 seconds with 8973049 records, not using spatial index)
-
+```sql
 SELECT 
     openbareruimte
 FROM 
@@ -130,3 +132,4 @@ WHERE
     (
         PtDistWithin(bagadres.geometry, MakePoint(5.592062, 51.471299, 4326), 0.05)
     )
+```
