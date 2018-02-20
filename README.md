@@ -13,6 +13,21 @@ Running
 $ node server.js
 ```
 
+Querying
+--------
+
+```bash
+$ curl http://localhost:3000/reverse?lat=5.592062&lon=51.4
+
+{"straatnaam":"de Plaetse","huisnummer":"70","huisnummertoevoeging":"","postcode":"5591TX","woonplaats":"Heeze","gemeente":"Heeze-Leende","provincie":"Noord-Brabant","lon":"5.59048640064042","lat":"51.3982902573836","object_type":"VBO","object_id":"1658010000000594"}
+```
+
+```bash
+$ curl http://localhost:3000/geocode?postcode=5216GV&huisnummer=31
+
+{"straatnaam":"Philippus de Montestraat","huisnummer":"31","huisnummertoevoeging":"","postcode":"5216GV","woonplaats":"'s-Hertogenbosch","gemeente":"'s-Hertogenbosch","provincie":"Noord-Brabant","lon":"5.31464820939035","lat":"51.682194039915","object_type":"VBO","object_id":"0796010000386976","geometry":{"type":"Point","coordinates":[5.31464820939035,51.68219403991499]}}
+```
+
 
 Spatialite preparation
 ----------------------
