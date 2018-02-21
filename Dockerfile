@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+RUN apt-get update
+RUN apt-get -y install software-properties-common python-software-properties
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update
 RUN apt-get -y install curl autoconf automake libtool pkg-config build-essential nodejs npm git libspatialite-dev sqlite3 gcc-5 g++-5
