@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get -y install curl autoconf automake libtool pkg-config build-essential nodejs npm git
+RUN apt-get -y install curl autoconf automake libtool pkg-config build-essential nodejs npm git libspatialite-dev sqlite3
 
 RUN mkdir /code
 WORKDIR /code
