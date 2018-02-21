@@ -11,8 +11,8 @@ RUN mkdir /code/postaldata
 RUN cd /code/libpostal && ./bootstrap.sh && ./configure --datadir=/code/postaldata
 RUN cd /code/libpostal && make && make install && ldconfig
 
-RUN npm install -g node-gyp yarn
-RUN yarn install
+RUN npm install -g node-gyp
+RUN npm install
 
 CMD ['nodejs', 'server.js']
 
