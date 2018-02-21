@@ -45,7 +45,7 @@ $ yarn install
 Running
 -------
 
-Node.js installation required!
+NOTE: Node.js installation required!
 
 
 ```bash
@@ -171,7 +171,31 @@ Copy the resulting file `bagadres.spatialite` to the folder `db/`.
 TODO
 ----
 
-- Create a Dockerfile
+- Create the Dockerfile for use in the next section.
+- Create a shell script which does the Spatialite preparation automatically.
+
+
+Docker
+------
+
+NOTE: Dockerfile not written yet. Feel free!
+
+Build the image:
+
+```bash
+$ docker build -t geocoder .
+```
+
+Building involves compiling `libpostal` and installation of several Ubuntu packages, so the process might take up to or even over 15 minutes to complete.
+
+Next, run a container from our newly built geocoder image:
+
+```bash
+$ docker run -d --name mygeocoder -v /path/to/your/spatialite/db/directory/:/code/db -p 3000:3000 geocoder
+```
+
+This command will run the container, name it 'mygeocoder' and will mount a volume into the container on `/code/db`, which is the location where the Node.js process will look for a file called `bagadres.spatialite`. This file needs to be prepared, see the 'spatialite preparation' section for more info.
+
 
 
 Query scratchpad
