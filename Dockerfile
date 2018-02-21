@@ -14,5 +14,5 @@ RUN cd /code/libpostal && make && make install && ldconfig
 RUN npm install -g node-gyp yarn
 RUN yarn install
 
-CMD ['node', 'server.js']
+CMD ['nodejs', 'server.js']
 
