@@ -1,9 +1,25 @@
 GEOCODER
 ========
 
-A super simple geocoder and reverse geocoder for the Netherlands.
+A super simple [geocoder and reverse geocoder for the Netherlands](https://geocoder.sandbox.lizard.net/).
 
-Based on BAG extract CSV.
+Based on [BAG extract CSV](https://data.nlextract.nl/bag/csv/).
+
+### Why use this? 
+
+- Because it's easier to install than most [full-blown](https://wiki.openstreetmap.org/wiki/Nominatim) [geocoding](https://github.com/pelias/) [solutions](https://github.com/komoot/photon).
+
+- It's free.
+
+
+### Why not use this?
+
+- It's reeeally simple. Probably too simple for your use case. For example, typing only a city name doesn't parse, only full addresses do.
+
+- It works for the Netherlands only
+
+- No support
+
 
 ### Examples:
 
