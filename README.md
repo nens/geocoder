@@ -7,12 +7,12 @@ Based on BAG extract CSV.
 
 
 
-Installation
-------------
+Installation (without Docker)
+-----------------------------
 
 On Ubuntu/Debian:
 ```bash
-$ sudo apt-get install curl autoconf automake libtool pkg-config build-essential
+$ sudo apt-get install curl autoconf automake libtool pkg-config build-essential nodejs npm git libspatialite-dev sqlite3 nodejs-legacy
 ```
 
 On MacOS:
@@ -22,15 +22,15 @@ $ brew install curl autoconf automake libtool pkg-config
 
 Install libpostal (C lib):
 ```bash
-git clone https://github.com/openvenues/libpostal
-cd libpostal
-./bootstrap.sh
-./configure --datadir=[...some dir with a few GB of space...]
-make
-sudo make install
+$ git clone https://github.com/openvenues/libpostal
+$ cd libpostal
+$ ./bootstrap.sh
+$ ./configure --datadir=[...some dir with a few GB of space...]
+$ make
+$ sudo make install
 
 # On Linux it's probably a good idea to run
-sudo ldconfig
+$ sudo ldconfig
 ```
 
 Then, install the JS dependencies:
@@ -39,18 +39,32 @@ $ sudo npm install -g node-gyp
 $ yarn install
 ```
 
-
-
-
-Running
--------
-
-NOTE: Node.js installation required!
-
-
+Run the server (port 3000 by default):
 ```bash
 $ node server.js
 ```
+
+
+With Docker
+-----------
+
+Build the image:
+
+```bash
+$ docker build -t geocoder .
+```
+
+Building involves compiling `libpostal` and installation of several Ubuntu packages, so the process might take up to or even over 15 minutes to complete.
+
+Next, run a container from our newly built geocoder image:
+
+```bash
+$ docker run -d --name mygeocoder -v /path/to/your/spatialite/db/directory/:/code/db -p 3000:3000 geocoder
+```
+
+This command will run the container, name it 'mygeocoder' and will mount a volume into the container on `/code/db`, which is the location where the Node.js process will look for a file called `bagadres.spatialite`. This file needs to be prepared, see the 'spatialite preparation' section in this readme for more info.
+
+
 
 
 Example queries
@@ -167,34 +181,10 @@ Copy the resulting file `bagadres.spatialite` to the folder `db/`.
 
 
 
-
 TODO
 ----
 
-- Create the Dockerfile for use in the next section.
 - Create a shell script which does the Spatialite preparation automatically.
-
-
-Docker
-------
-
-NOTE: Dockerfile not written yet. Feel free!
-
-Build the image:
-
-```bash
-$ docker build -t geocoder .
-```
-
-Building involves compiling `libpostal` and installation of several Ubuntu packages, so the process might take up to or even over 15 minutes to complete.
-
-Next, run a container from our newly built geocoder image:
-
-```bash
-$ docker run -d --name mygeocoder -v /path/to/your/spatialite/db/directory/:/code/db -p 3000:3000 geocoder
-```
-
-This command will run the container, name it 'mygeocoder' and will mount a volume into the container on `/code/db`, which is the location where the Node.js process will look for a file called `bagadres.spatialite`. This file needs to be prepared, see the 'spatialite preparation' section for more info.
 
 
 
