@@ -5,6 +5,21 @@ A super simple geocoder and reverse geocoder for the Netherlands.
 
 Based on BAG extract CSV.
 
+### Examples:
+
+
+[Adres + woonplaats](https://geocoder.sandbox.lizard.net/geocode?q=vinkenburgstraat%202,utrecht):
+
+`https://geocoder.sandbox.lizard.net/geocode?q=vinkenburgstraat%202,utrecht`
+
+[Lengte + breedtegraad (EPSG:4326)](https://geocoder.sandbox.lizard.net/reverse?lat=5.11742319815075&lon=52.09201977197619):
+
+`https://geocoder.sandbox.lizard.net/reverse?lat=5.11742319815075&lon=52.09201977197619`
+
+[Postcode + huisnummer](https://geocoder.sandbox.lizard.net/postcode?postcode=3512AB&huisnummer=2):
+
+`https://geocoder.sandbox.lizard.net/postcode?postcode=3512AB&huisnummer=2`
+
 
 
 Installation (without Docker)
