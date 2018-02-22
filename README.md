@@ -136,6 +136,8 @@ $ curl http://localhost:3000/reverse?lat=5.592062&lon=51.4
 Spatialite preparation
 ----------------------
 
+**NOTE: A pre-prepared spatialite file [is available here](https://drive.google.com/file/d/1XNcAhJL265zYraob6ommVBhQNp0xx-pm/view?usp=sharing) (~1GB, zipped)**
+
 Download and unzip the data:
 
 ```bash
