@@ -16,9 +16,11 @@ Based on [BAG extract CSV](https://data.nlextract.nl/bag/csv/).
 
 - It's reeeally simple. Probably too simple for your use case. For example, typing only a city name doesn't parse, only full addresses do.
 
-- It works for the Netherlands only
+- It works for the Netherlands only.
 
-- No support
+- No support.
+
+- Not tested.
 
 
 ### Examples:
