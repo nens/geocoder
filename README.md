@@ -188,7 +188,7 @@ TODO
 ----
 
 - Create a shell script which does the Spatialite preparation automatically.
-
+- Base the Dockerfile on Alpine Linux or another smaller base image.
 
 
 Query scratchpad
