@@ -20,7 +20,7 @@ Based on [BAG extract CSV](https://data.nlextract.nl/bag/csv/).
 
 - No support.
 
-- Not tested.
+- Not battle-tested.
 
 
 ### Examples:
