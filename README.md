@@ -33,11 +33,14 @@ $ sudo make install
 $ sudo ldconfig
 ```
 
-Then, install the JS dependencies:
+Then, install node 9.5.0 and the JS dependencies:
 ```bash
-$ sudo npm install -g node-gyp
-$ yarn install
+$ sudo npm install -g node-gyp n
+$ sudo n 9.5.0
+$ npm install
 ```
+
+Copy the spatialite file into `db/`.
 
 Run the server (port 3000 by default):
 ```bash
@@ -62,7 +65,7 @@ Next, run a container from our newly built geocoder image:
 $ docker run -d --name mygeocoder -v /path/to/your/spatialite/db/directory/:/code/db -p 3000:3000 geocoder
 ```
 
-This command will run the container, name it 'mygeocoder' and will mount a volume into the container on `/code/db`, which is the location where the Node.js process will look for a file called `bagadres.spatialite`. This file needs to be prepared, see the 'spatialite preparation' section in this readme for more info.
+Note: This command will run the container, name it 'mygeocoder' and will mount a volume into the container on `/code/db`, which is the location where the Node.js process will look for a file called `bagadres.spatialite`. This file needs to be prepared, see the 'spatialite preparation' section in this readme for more info.
 
 
 
