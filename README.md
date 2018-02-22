@@ -9,7 +9,7 @@ Based on [BAG extract CSV](https://data.nlextract.nl/bag/csv/).
 
 - Because it's easier to install than most [full-blown](https://wiki.openstreetmap.org/wiki/Nominatim) [geocoding](https://github.com/pelias/) [solutions](https://github.com/komoot/photon).
 
-- It's free.
+- It's free and MIT licensed.
 
 
 ### Why not use this?
